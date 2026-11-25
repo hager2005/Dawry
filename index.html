@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0876a8">
+  <title>دوري | نظام إدارة الدور</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="دوري - الصفحة الرئيسية">
+      <span class="brand-mark">د</span>
+      <span>دوري</span>
+    </a>
+    <nav aria-label="التنقل الرئيسي">
+      <button class="nav-link active" type="button" data-section="home">الرئيسية</button>
+      <button class="nav-link" type="button" data-section="clinics">العيادات</button>
+      <button class="nav-link" type="button" data-section="track">تتبع الدور</button>
+    </nav>
+    <button class="staff-button" id="staffButton" type="button">
+      <span class="staff-icon">⚙</span>
+      لوحة الموظفين
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">خدمة الانتظار الذكي</span>
+        <h1>دورك أقرب مما تتوقع</h1>
+        <p>احجز دورك من مكانك، واعرف عدد المنتظرين ووقت دورك المتبقي.</p>
+        <button class="primary-button" type="button" id="heroBookButton">احجز دورك الآن</button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="pulse-ring ring-one"></div>
+        <div class="pulse-ring ring-two"></div>
+        <div class="clock-card">
+          <div class="clock-face"><span>10</span></div>
+          <div>
+            <small>دورك الحالي</small>
+            <strong>القريب من الاستقبال</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section" id="clinics">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">احجز بسهولة</span>
+          <h2>اختر عيادتك</h2>
+        </div>
+        <div class="live-status"><span></span> النظام يعمل الآن</div>
+      </div>
+
+      <div class="clinic-grid" id="clinicGrid">
+        <button class="clinic-card selected" type="button" data-clinic="العيادة العامة" data-time="12">
+          <span class="clinic-icon blue">✚</span>
+          <span class="clinic-info">
+            <strong>العيادة العامة</strong>
+            <small><b>8</b> أشخاص ينتظرون</small>
+          </span>
+          <span class="arrow">←</span>
+        </button>
+        <button class="clinic-card" type="button" data-clinic="عيادة الأسنان" data-time="18">
+          <span class="clinic-icon teal">◉</span>
+          <span class="clinic-info">
+            <strong>عيادة الأسنان</strong>
+            <small><b>5</b> أشخاص ينتظرون</small>
+          </span>
+          <span class="arrow">←</span>
+        </button>
+        <button class="clinic-card" type="button" data-clinic="عيادة الأطفال" data-time="15">
+          <span class="clinic-icon orange">☻</span>
+          <span class="clinic-info">
+            <strong>عيادة الأطفال</strong>
+            <small><b>11</b> أشخاص ينتظرون</small>
+          </span>
+          <span class="arrow">←</span>
+        </button>
+      </div>
+
+      <div class="booking-bar">
+        <div>
+          <small>العيادة المختارة</small>
+          <strong id="selectedClinic">العيادة العامة</strong>
+        </div>
+        <div>
+          <small>الوقت المتوقع</small>
+          <strong><span id="selectedTime">12</span> دقيقة تقريبًا</strong>
+        </div>
+        <button class="primary-button" type="button" id="bookButton">تأكيد حجز الدور</button>
+      </div>
+    </section>
+
+    <section class="track-section" id="track">
+      <div class="track-copy">
+        <span class="eyebrow">تابع دورك</span>
+        <h2>لا تحتاج الانتظار داخل المركز</h2>
+        <p>سنحدث حالة دورك تلقائيًا كل عدة ثوانٍ، حتى تتمكن من الوصول في الوقت المناسب.</p>
+        <ul>
+          <li><span>✓</span> معرفة عدد المنتظرين قبلك</li>
+          <li><span>✓</span> تنبيه عند اقتراب دورك</li>
+          <li><span>✓</span> إمكانية إلغاء الحجز بسهولة</li>
+        </ul>
+      </div>
+      <div class="ticket" id="ticket">
+        <div class="ticket-header">
+          <span>رقم دورك</span>
+          <span class="ticket-status" id="ticketStatus">في الانتظار</span>
+        </div>
+        <div class="ticket-number" id="ticketNumber">--</div>
+        <p id="ticketClinic">احجز دورًا لتظهر بياناته هنا</p>
+        <div class="ticket-stats">
+          <div><strong id="peopleAhead">--</strong><small>أمامك</small></div>
+          <div><strong id="remainingTime">--</strong><small>دقيقة متبقية</small></div>
+        </div>
+        <button class="outline-button" id="qrButton" type="button">عرض رمز QR</button>
+        <button class="cancel-button" id="cancelButton" type="button">إلغاء الحجز</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="staffModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="staffTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="إغلاق">×</button>
+      <span class="eyebrow">لوحة الاستقبال</span>
+      <h2 id="staffTitle">إدارة الأدوار</h2>
+      <div class="staff-summary">
+        <div><strong id="staffWaiting">8</strong><small>منتظرون</small></div>
+        <div><strong id="staffCurrent">9</strong><small>الدور الحالي</small></div>
+      </div>
+      <div class="queue-list" id="queueList"></div>
+      <button class="primary-button full-button" id="callNextButton" type="button">نداء الدور التالي</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
